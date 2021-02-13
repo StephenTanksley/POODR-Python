@@ -9,7 +9,6 @@ class Gear:
     def __init__(self, chainring, cog, wheel):
         self._chainring = chainring
         self._cog = cog
-        self.wheel = wheel
 
     def __str__(self):
         print(
@@ -27,25 +26,29 @@ class Gear:
     def ratio(self):
         return float(self._chainring / self._cog)
 
-    def gear_inches(self):
+    def gear_inches(self, diameter):
         # This method doesn't actually care about self.wheel whether it's an actual Wheel object or not.
-        return self.ratio() * self.wheel.diameter
+        return self.ratio() * diameter
 
 
 class Wheel:
-    def __init__(self, rim, tire):
+    def __init__(self, rim, tire, chainring, cog):
         self.rim = rim
         self.tire = tire
+        self.gear = Gear(chainring, cog)
 
     def diameter(self):
         return self.rim + (self.tire * 2)
 
-
-def print_kwargs(keyword, **kwargs):
-    print(type(kwargs))
-    for key, value in kwargs.items():
-        if key == keyword:
-            print(f'{keyword}: {value}')
+    def gear_inches(self, diameter):
+        return self.gear.gear_inches(diameter)
 
 
-print_kwargs("kwarg2", kwarg1="kwarg1", kwarg2="kwarg2", kwarg3="kwarg3")
+# def print_kwargs(keyword, **kwargs):
+#     print(type(kwargs))
+#     for key, value in kwargs.items():
+#         if key == keyword:
+#             print(f'{keyword}: {value}')
+
+
+# print_kwargs("kwarg2", kwarg1="kwarg1", kwarg2="kwarg2", kwarg3="kwarg3")
