@@ -6,7 +6,7 @@ from collections import namedtuple
 
 
 class Gear:
-    def __init__(self, chainring, cog, wheel):
+    def __init__(self, chainring, cog):
         self._chainring = chainring
         self._cog = cog
 
