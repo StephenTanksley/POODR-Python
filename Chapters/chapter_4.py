@@ -21,8 +21,10 @@ class Customer:
 
 
 class Trip:
-    def __init__(self):
-        pass
+    def __init__(self, date, difficulty):
+        self.date = date
+        self.difficulty = difficulty
+        self.trips = []
 
     def __str__(self):
         pass
@@ -40,3 +42,8 @@ class Bicycle:
 
     def __repr__(self):
         pass
+
+
+moe = Customer('01/01/2021', 'Easy', True)
+
+print(moe.__dict__)

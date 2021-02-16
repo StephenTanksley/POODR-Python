@@ -4,7 +4,9 @@ from chapter_4 import Customer, Trip, Bicycle
 """
     I have three classes in this chapter which need to be tested. 
     1) Customer
-        a) 
+        a) date
+        b) difficulty
+        c) needs_bike
     2) Trip
     3) Bicycle
 
