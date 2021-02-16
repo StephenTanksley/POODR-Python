@@ -18,9 +18,13 @@ class CustomerTests(unittest.TestCase):
 
     def setUp(self):
         self.moe = Customer('01/01/2021', 'Easy', True)
+        self.moe_clone = self.moe
 
     def tearDown(self):
         del self.moe
+
+    def test_object_equivalence(self):
+        self.assertIs(self.moe, self.moe_clone)
 
     def test_customer_attributes(self):
         self.assertEqual(len(self.moe.__dict__), 3)
