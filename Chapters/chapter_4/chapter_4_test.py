@@ -21,6 +21,7 @@ class CustomerTests(unittest.TestCase):
         self.moe_clone = self.moe
 
     def tearDown(self):
+        del self.moe_clone
         del self.moe
 
     def test_object_equivalence(self):
